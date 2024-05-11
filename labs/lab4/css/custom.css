@@ -1,0 +1,142 @@
+.img-thumbnail {
+    padding: 0.25rem;
+    margin-top: 5px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Lifted form the bootsrap.css file, and modified to emulate the nav-bar menu styling */
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color:  #760003; /* Font color for active font */
+    background-color: #3399ff; /* Blue color for background */
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs .nav-link {
+    color: white;  
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+/* Added this to emulate the nav-bar link styling */
+.nav-tabs .nav-link:hover {
+    color: green;
+    border: 1px solid transparent;
+}
+
+.camera-btns {
+    /* background-color: rgba(0, 0, 255, 0.3);  */
+    border-color: black; 
+    border-style: solid;
+    border-width: 0px;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.camera-btns > p  {
+    font-size: 15px;
+    color: red;
+    padding: 5px 0px;
+    font-weight: 900; 
+}
+
+.camera-font {
+    font-weight: 400;   
+    color: white;
+}
+
+.camera-font:hover {
+    font-weight: 700;   
+    color: rgb(3, 3, 3);
+}
+
+.btn-responsive {
+    padding: 4px 9px;
+    font-size: 60%;
+    line-height: 1.2;
+    white-space: normal !important;
+}
+
+.gallery-header {
+    color: white;
+}
+
+.gallery-header:hover {
+    color: green;
+    border: 1px solid transparent;
+}
+
+
+.card {
+    border: 1px solid rgba(0,0,0,0.2);
+    /* border-radius: .25rem;*/
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(182, 231, 243, 1.0);
+ }
+
+ .card-text {
+    font-size: 13px;
+    margin-top: 10px;
+ }
+
+
+ .gallery-header {
+    color: white;
+}
+
+.gallery-header:hover {
+    color: green;
+    border: 1px solid transparent;
+}
+
+.model3D {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+
+    
+
+X3D, x3d {
+    /*position: relative;
+    float: left;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #000;*/
+    border-radius: 5px;
+    border: 1px solid rgba(255, 0, 0, 1.0);
+    width: 100%;
+    height: 100%
+}
+
+
+.button-container .btn {
+    margin: 10px; /* Adds space around the buttons */
+    padding: 10px 20px; /* Adjusts the padding for better button size */
+    font-size: 16px; /* Sets an appropriate font size */
+    border-radius: 5px; /* Rounds the corners of the buttons */
+  }
+  
+  /* Ensures buttons stack on smaller screens for better responsiveness */
+  @media (max-width: 768px) {
+    .button-container .btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  

@@ -1,0 +1,123 @@
+.img-thumbnail {
+    padding: 0.25rem;
+    margin-top: 5px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Lifted form the bootsrap.css file, and modified to emulate the nav-bar menu styling */
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color:  #760003; /* Font color for active font */
+    background-color: #3399ff; /* Blue color for background */
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs .nav-link {
+    color: white;  
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+/* Added this to emulate the nav-bar link styling */
+.nav-tabs .nav-link:hover {
+    color: green;
+    border: 1px solid transparent;
+}
+
+.camera-btns {
+    /* background-color: rgba(0, 0, 255, 0.3);  */
+    border-color: black; 
+    border-style: solid;
+    border-width: 0px;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.camera-btns > p  {
+    font-size: 15px;
+    color: red;
+    padding-left: 0px;
+    font-weight: 900; 
+}
+
+.camera-font {
+    font-weight: 400;   
+    color: white;
+}
+
+.camera-font:hover {
+    font-weight: 700;   
+    color: rgb(3, 3, 3);
+}
+
+.btn-responsive {
+    padding: 6px 10px;
+    font-size: 90%;
+    line-height: 1.2;
+    white-space: normal !important;
+}
+
+/* Improved CSS for better UI */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+  }
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Add other styles as needed */
+  
+

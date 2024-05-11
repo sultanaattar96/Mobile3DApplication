@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Coca cola 3D App Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/css/all.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="assets/css/variables.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- X3dom -->
+  <link rel='stylesheet' type='text/css' href='css/x3dom.css'>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <div class="logo d-flex align-items-center">
+        <a class="navbar-brand" href="#">
+          <h1 class="mb-0">Cocacola</h1>
+          <p class="mb-0">Refreshing the world, one story at a time</p>
+        </a>
+      </div>
+  
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="nav-link" href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="About Web 3D Applications" data-content="3D Apps is a final year and postgraduate module">About</a></li>
+          <li class="dropdown">
+            <a href="category.html"><span>Drinks</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="coke.html">Coca-Cola</a></li>
+              <li><a href="sprite.html">Sprite</a></li>
+              <li><a href="pepper.html">Pepper</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  
+      <div class="position-relative">
+        <i class="bi bi-list mobile-nav-toggle"></i>
+  
+        <!-- ======= Search Form ======= -->
+        <div class="search-form-wrap js-search-form-wrap">
+          <form action="search-result.html" class="search-form">
+            <span class="icon bi-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+            <button class="btn js-search-close"><span class="bi-x"></span></button>
+          </form>
+        </div><!-- End Search Form -->
+      </div>
+    </div>
+  </header><!-- End Header -->
+  
+
+  <main id="main">   
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="card text-left h-100">
+            <div class="card-header bg-dark text-white">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" href="coke.html">Coke</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="sprite.html">Sprite</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pepper.html">Pepper</a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body bg-light">
+              <h4 class="card-title text-center">Coca Cola X3D Model</h4>
+              <div class="model3D">
+                <!-- Add a loader here -->
+                <div class="loader"></div>
+                <x3d width="100%" height="400px">
+                  <scene>
+                    <inline url="assets/x3d/coke.x3d"></inline>
+                  </scene>
+                </x3d>
+              </div>
+              <p class="card-text text-center mt-4">This X3D model of the Coke can has been created in 3ds Max, exported to VRML97, and converted using the instantreality transcoders for online display.</p>
+              <div class="button-container text-center">
+                <a href="#" class="btn btn-primary camera-font">Front</a>
+                <a href="#" class="btn btn-secondary camera-font">Back</a>
+                <a href="#" class="btn btn-success camera-font">Left</a>
+                <a href="#" class="btn btn-danger camera-font">Right</a>
+                <a href="#" class="btn btn-warning camera-font">Top</a>
+                <a href="#" class="btn btn-outline-dark disabled camera-font">Off</a>
+              </div>              
+            </div>
+          </div>
+        </div>
+      
+        <!-- Column to hold the 3D image Gallery -->
+        <div class="col-lg-3">
+          <div class="card border-0 shadow h-100">
+            <div class="card-body bg-light">
+              <h4 class="card-title text-center mb-4">3D Image Gallery</h4>
+              <div class="gallery">
+                <a href="coke.html" class="d-block mb-3">
+                  <img class="card-img-top img-fluid img-thumbnail" src="assets/images/coca_cola.jpg" alt="Coca Cola">
+                </a>
+                <a href="sprite.html" class="d-block mb-3">
+                  <img class="card-img-top img-fluid img-thumbnail" src="assets/images/sprite.jpg" alt="Sprite">
+                </a>
+                <a href="pepper.html" class="d-block mb-3">
+                  <img class="card-img-top img-fluid img-thumbnail" src="assets/images/dr_pepper.jpg" alt="Dr Pepper">
+                </a>
+              </div>
+              <p class="card-text text-center mt-4">Explore the detailed 3D renders of our iconic beverages, crafted with precision in 3ds Max 2017 using Mental Ray.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>  
+      ```
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card shadow-lg">
+            <div class="card-body bg-light">
+              <h3 class="card-title text-center mb-4">Coca Cola</h3>
+              <p class="card-text">
+                <strong>Atlanta Beginnings:</strong> In 1886, workers in New York Harbor were constructing the Statue of Liberty. Meanwhile, 800 miles away, another great American symbol was about to be unveiled.
+                John Pemberton, an Atlanta pharmacist, was inspired by simple curiosity. One afternoon, he stirred up a fragrant, caramel-colored liquid. When it was done, he carried it a few doors down to Jacobs' Pharmacy. Customers sampled it and all agreed—this new drink was something special. So Jacobs' Pharmacy put it on sale for five cents (about 3p) a glass.
+              </p>
+              <p class="mb-4">
+                <strong>Coca-Cola</strong> was invented in the late 19th century and continues to dominate the food and drink industry today as the most popular soft drink in the world.
+              </p>
+              <div class="text-center">
+                <a href="#" class="btn btn-primary">Find out more...</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+        
+
+    </div> <!-- End container-fluid -->
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="footer-content container-fluid bg-dark text-white py-5">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-6">
+            <h3 class="footer-heading text-uppercase">About Coca-Cola Journey</h3>
+            <p>Since the first serving of Coca‑Cola on May 8, 1886, we've grown into a total beverage company, delighting over 2.1 billion people daily across 200+ countries.</p>
+            <p><a href="#" class="btn btn-outline-light btn-sm">Learn More</a></p>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading text-uppercase">Navigation</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="index.html" class="text-white">Home</a></li>
+              <li><a href="category.html" class="text-white">Categories</a></li>
+              <li><a href="about.html" class="text-white">About Us</a></li>
+              <li><a href="contact.html" class="text-white">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading text-uppercase">Categories</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="category.html" class="text-white">Business</a></li>
+              <li><a href="category.html" class="text-white">Culture</a></li>
+              <li><a href="category.html" class="text-white">Sport</a></li>
+              <li><a href="category.html" class="text-white">Food</a></li>
+              <li><a href="category.html" class="text-white">Celebrity</a></li>
+              <li><a href="category.html" class="text-white">Travel</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading text-uppercase">Follow Us</h3>
+            <a href="#" class="text-white mx-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white mx-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-white mx-2"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!--<script src="js/bootstrap.js"></script>-->
+    <script src="js/custom.js"></script>
+  <!-- Include the x3dom JavaScript -->
+
+  <script type='text/javascript' src='js/x3dom.js'></script>
+
+</body>
+
+</html>
