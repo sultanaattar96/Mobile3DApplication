@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Coca cola 3D App Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="assets/css/bootstrap-4.4.1.css">
+  <link rel="stylesheet" href="assets/css/all.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/css/all.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="assets/css/variables.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- X3dom -->
+  <link rel='stylesheet' type='text/css' href='css/x3dom.css'>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <div class="logo d-flex align-items-center">
+        <a class="navbar-brand" href="#">
+          <h1 class="mb-0">Cocacola</h1>
+          <p class="mb-0">Refreshing the world, one story at a time</p>
+        </a>
+      </div>
+  
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="nav-link" href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="About Web 3D Applications" data-content="3D Apps is a final year and postgraduate module">About</a></li>
+          <li class="dropdown">
+            <a href="category.html"><span>Drinks</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="coke.html">Coca-Cola</a></li>
+              <li><a href="sprite.html">Sprite</a></li>
+              <li><a href="pepper.html">Pepper</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  
+      <div class="position-relative">
+        <i class="bi bi-list mobile-nav-toggle"></i>
+  
+        <!-- ======= Search Form ======= -->
+        <div class="search-form-wrap js-search-form-wrap">
+          <form action="search-result.html" class="search-form">
+            <span class="icon bi-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+            <button class="btn js-search-close"><span class="bi-x"></span></button>
+          </form>
+        </div><!-- End Search Form -->
+      </div>
+    </div>
+  </header><!-- End Header -->
+  
+
+  <main id="main">   
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="card text-left h-100">
+            <div class="card-header bg-dark text-white">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" href="coke.html">Coke</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="sprite.html">Sprite</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pepper.html">Pepper</a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body bg-light">
+              <!-- <h4 class="card-title text-center">Coca Cola X3D Model</h4> -->
+              <div id="coke">
+                <div id="x3dModelTitle_coke" class="card-title drinksText"></div>
+                <!-- Place the X3D code here -->
+                <div class="model3D">
+                  <div class="loader"></div>
+                    <x3d width="100%" height="400px">
+                        <scene>
+                            <inline nameSpaceName="model" mapDEFToID="true" onclick="animateModel();" url="assets/x3d/coke.x3d" > </inline>
+                        </scene>
+                    </x3d>
+                </div> 
+                <div id="x3dCreationMethod_coke" class="card-text drinksText"></div>
+            </div>
+              <!-- <div class="button-container text-center">
+                <a href="#" class="btn btn-primary camera-font">Front</a>
+                <a href="#" class="btn btn-secondary camera-font">Back</a>
+                <a href="#" class="btn btn-success camera-font">Left</a>
+                <a href="#" class="btn btn-danger camera-font">Right</a>
+                <a href="#" class="btn btn-warning camera-font">Top</a>
+                <a href="#" class="btn btn-outline-dark disabled camera-font">Off</a>
+              </div>               -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3">
+          <div class="card border-0 shadow h-100">
+              <div class="card-body bg-light">
+                  <div class="card-title title_gallery drinksText text-center mb-4"></div>
+                  <!-- <h4 class="card-title text-center mb-4">3D Image Gallery</h4> -->
+                  <div class="gallery" id="common_gallery">
+                      <!-- The table with images will be dynamically inserted here -->
+                  </div> 
+                  <div class="card-text description_gallery drinksText"></div>    
+              </div>
+          </div>
+      </div>      
+      </div>  
+      ```
+
+      <!-- Start the interaction panels -->
+      <div id="interaction" class="row" >
+        <div class="col-sm-4">
+            <div class="card text-left">
+              <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                <!-- Dropdown nav-tab -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Cameras</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#" onclick="cameraFront();">Front</a>
+                      <a class="dropdown-item" href="#" onclick="cameraBack();">Back</a>
+                      <a class="dropdown-item" href="#" onclick="cameraLeft();">Left</a>
+                      <a class="dropdown-item" href="#" onclick="cameraRight();">Right</a>
+                      <a class="dropdown-item" href="#" onclick="cameraTop();">Top</a>
+                      <a class="dropdown-item" href="#" onclick="cameraBottom();">Bottom</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+                <div class="card-body">
+                  <div class="card-Title x3dCamera_Subtitle drinksText">
+                    <h3>Camera Views</h3>
+                  </div>                            
+                  <a href="#" class="btn btn-success btn-responsive" onclick="cameraFront();">Default</a>
+                  <a href="#" class="btn btn-primary btn-responsive" onclick="cameraBack();">Back</a>
+                  <a href="#" class="btn btn-secondary btn-responsive" onclick="cameraLeft();">Left</a>
+                  <a href="#" class="btn btn-secondary btn-responsive" onclick="cameraRight();">Right</a>
+                  <a href="#" class="btn btn-outline-dark disabled btn-responsive">Off</a>
+                  <div class="card-text x3dCameraDescription drinksText">
+                    <p>These buttons select a limited range of X3D model viewpoints, use the dropdown menu for more camera views</p>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <!-- Column for the animation controls -->
+        <div class="col-sm-4">
+            <div class="card text-left">
+                <div class="card-header">
+                  <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Animation</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-body">
+                  <div class="card-Title x3dAnimationSubtitle drinksText">
+                    <h3>Animation Options</h3>
+                  </div>
+                  <a href="#" class="btn btn-outline-light btn-responsive" onclick="spin();">RotX</a>
+                  <a href="#" class="btn btn-outline-light btn-responsive">RotY</a>
+                  <a href="#" class="btn btn-outline-light btn-responsive">RotZ</a>
+                  <a href="#" class="btn btn-outline-dark btn-responsive" onclick="stopRotation();">Stop</a>
+                  <div class="card-text x3dAnimationDescription drinksText">
+                      <p>These buttons select a range of X3D animation options</p>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <!-- Column for the render type and lighting controls -->
+        <div class="col-sm-4">
+            <div class="card text-left">
+                <div class="card-header">
+                  <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" >Render</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Polygon</a>
+                        <a class="dropdown-item" href="#" onclick="wireframe();">Wireframe</a>
+                        <a class="dropdown-item" href="#">Vertex</a>
+                      </div>
+                    </li>
+                  <!-- Dropdown nav-tab -->
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Lights</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Default</a>
+                        <a class="dropdown-item" href="#">Onmi On/Off</a>
+                        <a class="dropdown-item" href="#">Target On/Off</a>
+                        <a class="dropdown-item" href="#">Headlight On/Off</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-body">
+                  <div class="card-Title x3dRendersubtitle drinksText">
+                    <h3>Render and Lighting Options</h3>
+                  </div>
+                  <a href="#" class="btn btn-success btn-responsive">Poly</a>
+                  <a href="#" class="btn btn-secondary btn-responsive" onclick="wireframe();">Wire</a>
+                  <a href="#" class="btn btn-success btn-responsive" onclick="headlight();">Headlight</a>
+                  <a href="#" class="btn btn-outline-dark btn-responsive">Default</a>
+                  <div class="card-text x3dRenderDescription drinksText">
+                      <p>These buttons select a limited number of render and lighting options; use the dropdown menus for more options</p>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div> <!-- End the interaction panels -->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card shadow-lg">
+            <div class="card-body bg-light">
+                <div class="card-title text-center mb-4" id="title_cokehome"></div>
+                <div class="card-text text-center" id="subTitle_cokehome"></div>
+                <div class="card-text" id="description_cokehome"></div>
+              <div class="text-center">
+                <a href="#" class="btn btn-primary">Find out more...</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+        
+
+    </div> <!-- End container-fluid -->
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="footer-content container-fluid bg-dark text-white py-5">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-6">
+            <div id="title_cokefooter" class="footer-heading text-uppercase"></div>
+            <div id="subTitle_cokefooter"></div> 
+            <div id="description_cokefooter"></div>   
+            <p><a href="#" class="btn btn-outline-light btn-sm">Learn More</a></p>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading text-uppercase">Navigation</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="index.html" class="text-white">Home</a></li>
+              <li><a href="category.html" class="text-white">Categories</a></li>
+              <li><a href="about.html" class="text-white">About Us</a></li>
+              <li><a href="contact.html" class="text-white">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading text-uppercase">Categories</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="category.html" class="text-white">Business</a></li>
+              <li><a href="category.html" class="text-white">Culture</a></li>
+              <li><a href="category.html" class="text-white">Sport</a></li>
+              <li><a href="category.html" class="text-white">Food</a></li>
+              <li><a href="category.html" class="text-white">Celebrity</a></li>
+              <li><a href="category.html" class="text-white">Travel</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading text-uppercase">Follow Us</h3>
+            <a href="#" class="text-white mx-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white mx-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-white mx-2"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-3.7.1.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="scripts/js/bootstrap-4.4.1.js"></script>
+  
+  <!--<script src="js/bootstrap.js"></script>-->
+  <script src="js/custom.js"></script>
+  <!-- Include the x3dom JavaScript -->
+  <!-- <script type='text/javascript' src='js/x3dom.js'></script> -->
+  <script src='scripts/js/x3dom.js'></script>
+  <script src="scripts/js/swap_restyle.js"></script>
+  <script src="scripts/js/gallery_generator.js"></script>
+  <script src="scripts/js/getJsonData.js"></script>
+  <script src="scripts/js/modelInteraction.js"></script>
+  <script src="scripts/js/jquery.fancybox.min.js"></script>
+
+</body>
+
+</html>

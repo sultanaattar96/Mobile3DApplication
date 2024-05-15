@@ -140,3 +140,40 @@ X3D, x3d {
     }
   }
   
+
+/* General styling for the interaction panel */
+#interaction {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    margin: 1em 0;
+    padding: 1em;
+}
+
+/* Styling for the cards within the interaction panel */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for the card headers */
+.card-header {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Styling for the card bodies */
+.card-body {
+    background-color: #e9ecef;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Styling for the buttons within the card bodies */
+.btn-responsive {
+    margin: 0.5em 0;
+    width: 100%;
+}
+
