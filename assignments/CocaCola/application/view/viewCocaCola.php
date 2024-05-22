@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +33,7 @@
   <link rel='stylesheet' type='text/css' href='../application/css/x3dom.css'>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../../CocaCola_VM/application/css/custom.css">
+  <link rel="stylesheet" href="../../CocaCola/application/css/custom.css">
   <link rel="stylesheet" type="text/css" href="../application/css/jquery.fancybox.min.css">
 </head>
 
@@ -39,7 +41,7 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <div class="container-fluid container-xl d-flex justify-content-between">
     <!-- <img src="../application/assets/images/loggo.png" alt="" style="width:100px; height:100px;">  -->
     <div class="logo d-flex align-items-center">
         <a class="navbar-brand" href="#">
@@ -235,9 +237,9 @@
 
     <!-- Start X3D models and 3D Image Gallery -->
     <div id="models">
-      <div class="row" style="margin: 30px;">
-        <div class="col-lg-9">
-          <div class="card text-left h-100">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="card text-left">
             <div class="card-header bg-dark text-white">
               <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
@@ -257,9 +259,9 @@
                 <div id="x3dModelTitle_coke" class="card-title drinksText"></div>
                 <div class="model3D">
                   <div class="loader"></div>
-                    <x3d>
+                    <x3d id="cokeWire">
                         <scene>
-                            <inline nameSpaceName="model" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/coke3d.x3d" > </inline>
+                            <inline nameSpaceName="cokeModel" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/coke3d.x3d" > </inline>
                         </scene>
                     </x3d>
                 </div> 
@@ -271,9 +273,9 @@
                 <!-- Place the X3D code here -->
                 <div class="model3D">
                   <div class="loader"></div>
-                    <x3d id="model">
+                    <x3d id="spriteWire">
                         <scene>
-                            <inline nameSpaceName="model" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/final_sprite.x3d"> </inline>
+                            <inline nameSpaceName="spriteModel" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/final_sprite.x3d"> </inline>
                         </scene>
                     </x3d>
                 </div> 
@@ -285,9 +287,9 @@
                 <!-- Place the X3D code here -->
                 <div class="model3D">
                   <div class="loader"></div>
-                    <x3d>
+                    <x3d id="pepperWire">
                         <scene>
-                            <inline nameSpaceName="model" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/pepper3d.x3d"> </inline>
+                            <inline nameSpaceName="pepperModel" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/pepper3d.x3d"> </inline>
                         </scene>
                     </x3d>
                 </div> 
@@ -296,77 +298,92 @@
             </div>
           </div>
         </div>
-        
-        <div class="col-lg-3">
-          <div class="card border-0 shadow h-100">
+
+        <div class="col-lg-5">
+          <div id="interaction" class="row">
+          <!-- Camera Controls -->
+          <div class="col-md-4">
+              <div class="card text-left">
+                  <div class="card-header bg-primary text-white">
+                      <h5 class="card-title">Camera Views</h5>
+                  </div>
+                  <div class="card-body">
+                      <div class="btn-group-vertical w-100">
+                          <button class="btn btn-outline-primary" onclick="setCamera(getActiveModel(), 'Front');">Front</button>
+                          <button class="btn btn-outline-primary" onclick="setCamera(getActiveModel(), 'Back');">Back</button>
+                          <button class="btn btn-outline-primary" onclick="setCamera(getActiveModel(), 'Left');">Left</button>
+                          <button class="btn btn-outline-primary" onclick="setCamera(getActiveModel(), 'Right');">Right</button>
+                          <button class="btn btn-outline-primary" onclick="setCamera(getActiveModel(), 'Top');">Top</button>
+                          <button class="btn btn-outline-primary" onclick="setCamera(getActiveModel(), 'Bottom');">Bottom</button>
+                      </div>
+                      <!-- <p class="card-text mt-3">Select a limited range of X3D model viewpoints</p> -->
+                  </div>
+              </div>
+          </div>
+
+          <!-- Render and Lighting Controls -->
+          <div class="col-md-4">
+              <div class="card text-left">
+                  <div class="card-header bg-info text-white">
+                      <h5 class="card-title">Render and Lighting Options</h5>
+                  </div>
+                  <div class="card-body">
+                      <div class="btn-group-vertical w-100">
+                          <!-- <button class="btn btn-outline-info" onclick="togglePolygonView();">Polygon</button> -->
+                          <button class="btn btn-outline-info" onclick="wireFrame();">Wireframe</button>
+                          <button class="btn btn-outline-info" onclick="toggleHeadlight(getActiveModel());">Headlight</button>
+                          <button class="btn btn-outline-info" onclick="toggleAllOmniLights(getActiveModel());">Omni Lights</button>
+                          <button class="btn btn-outline-info" onclick="resetToDefault();">Default</button>
+                      </div>
+                      <p class="card-text mt-3">Select a limited number of render and lighting options</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Animation Controls -->
+          <div class="col-sm-4">
+              <div class="card text-left">
+                  <div class="card-header bg-success text-white">
+                      <h5 class="card-title">Animation Options</h5>
+                  </div>
+                  <div class="card-body">
+                      <div class="btn-group-vertical w-100">
+                          <button class="btn btn-outline-success" onclick="rotateX();">Spin X</button>
+                          <button class="btn btn-outline-success" onclick="rotateY();">Spin Y</button>
+                          <button class="btn btn-outline-success" onclick="rotateZ();">Spin Z</button>
+                          <button class="btn btn-outline-success" onclick="stopRotation();">Stop</button>
+                      </div>
+                      <p class="card-text mt-3">Select a range of X3D animation options. Please select any</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-12">
+          <div class="card border-0 shadow">
+              <div class="card-body bg-light">
+                  <div class="bg-success text-white">
+                      <h4 class="text-center">Animation</h4>
+                  </div>
+                  <p class="text-center">Explore different animation options using the buttons above.</p>
+              </div>
+          </div>
+        </div> <!-- End the interaction panels -->
+        </div>
+      
+      </div>
+      <!-- Start the interaction panels -->
+
+      <div class="col-lg-12">
+          <div class="card border-0 shadow">
               <div class="card-body bg-light">
                   <div class="card-title title_gallery drinksText text-center mb-4"></div>
                   <!-- <h4 class="card-title text-center mb-4">3D Image Gallery</h4> -->
                   <div class="gallery" id="common_gallery">
                       <!-- The table with images will be dynamically inserted here -->
                   </div> 
-                  <div class="card-text description_gallery drinksText"></div>    
-              </div>
+              <div class="card-text description_gallery drinksText"></div>    
           </div>
       </div>
-      <!-- Start the interaction panels -->
-      <div id="interaction" class="row">
-        <!-- Camera Controls -->
-        <div class="col-sm-4">
-            <div class="card text-left">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="card-title">Camera Views</h5>
-                </div>
-                <div class="card-body">
-                    <div class="btn-group-vertical w-100">
-                        <button class="btn btn-outline-primary" onclick="cameraFront();">Front</button>
-                        <button class="btn btn-outline-primary" onclick="cameraBack();">Back</button>
-                        <button class="btn btn-outline-primary" onclick="cameraLeft();">Left</button>
-                        <button class="btn btn-outline-primary" onclick="cameraRight();">Right</button>
-                        <button class="btn btn-outline-primary" onclick="cameraTop();">Top</button>
-                        <button class="btn btn-outline-primary" onclick="cameraBottom();">Bottom</button>
-                    </div>
-                    <p class="card-text mt-3">Select a limited range of X3D model viewpoints</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Animation Controls -->
-        <div class="col-sm-4">
-            <div class="card text-left">
-                <div class="card-header bg-success text-white">
-                    <h5 class="card-title">Animation Options</h5>
-                </div>
-                <div class="card-body">
-                    <div class="btn-group-vertical w-100">
-                        <button class="btn btn-outline-success" onclick="spin();">Spin</button>
-                        <!-- <button class="btn btn-outline-success">RotY</button>
-                        <button class="btn btn-outline-success">RotZ</button> -->
-                        <button class="btn btn-outline-success" onclick="stopRotation();">Stop</button>
-                    </div>
-                    <p class="card-text mt-3">Select a range of X3D animation options</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Render and Lighting Controls -->
-        <div class="col-sm-4">
-            <div class="card text-left">
-                <div class="card-header bg-info text-white">
-                    <h5 class="card-title">Render and Lighting Options</h5>
-                </div>
-                <div class="card-body">
-                    <div class="btn-group-vertical w-100">
-                        <button class="btn btn-outline-info">Polygon</button>
-                        <button class="btn btn-outline-info" onclick="wireframe();">Wireframe</button>
-                        <button class="btn btn-outline-info" onclick="headlight();">Headlight</button>
-                        <button class="btn btn-outline-info">Default</button>
-                    </div>
-                    <p class="card-text mt-3">Select a limited number of render and lighting options</p>
-                </div>
-            </div>
-        </div>
-      </div> <!-- End the interaction panels -->
+      
 
 
       <div id="cokeDescription" class="row">
@@ -385,6 +402,7 @@
       </div>
 
     </div> <!-- End X3D models -->
+    </div>
 
   </div>
 
@@ -433,14 +451,15 @@
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="../application/js/jquery-3.7.1.js"></script>
   <script src="../application/js/jquery.min.js"></script>
+  <script src="../application/js/jquery-3.7.1.js"></script>
+  <script src="../application/js/cocaContent.js"></script>
   <script src="../application/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../application/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../application/assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="../application/assets/vendor/aos/aos.js"></script>
   <script src="../application/assets/vendor/php-email-form/validate.js"></script>
-  <script src="../application/js/getJsonData.js"></script>
+  <!-- <script src="../application/js/getJsonData.js"></script> -->
   <script src="../application/js/popper.min.js"></script>
   <script src="../application//js/bootstrap-4.4.1.js"></script>
   <script src="../application/js/custom.js"></script>

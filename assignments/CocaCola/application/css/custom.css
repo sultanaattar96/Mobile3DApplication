@@ -627,10 +627,17 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .card {
-        /* border-radius: .25rem;*/
-        margin-top: 10px;
-        margin-bottom: 10px;
-        background-color: rgb(185, 185, 178);
+        border-radius: .50rem;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background-color: rgb(241, 237, 243);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-body {
+        flex: 1;
+        min-height: 150px; /* Set a minimum height for all card bodies */
     }
 
     .logo {
@@ -837,5 +844,37 @@ h1, h2, h3, h4, h5, h6 {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  /* Custom CSS to ensure equal height of cards */
+  .equal-height-cards .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .equal-height-cards .card-body {
+    flex: 1; /* This will make the card-body fill the available space, pushing the footer to the bottom */
+  }
+
+
+  .card-title {
+    height: 50px; /* Adjust the height as needed */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* Adjust as needed for spacing between cards */
+}
+
+.card-body {
+    flex: 1;
+    min-height: 50%; /* Set a minimum height for all card bodies */
+}
+
+
+
+
 
 

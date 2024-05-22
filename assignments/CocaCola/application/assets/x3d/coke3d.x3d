@@ -9,48 +9,44 @@
 </head>
 <Scene>
 
-	<!-- <NavigationInfo DEF="NavInfo001"
-		avatarSize="0.25 1.60000002384186 0.75"
-		type='"EXAMINE"' /> -->
-	
-	 <NavigationInfo  DEF="headlight" headlight="true" avatarSize="0.25 1.60000002384186 0.75" type='"EXAMINE"'/>
+	<NavigationInfo  DEF="headlight" headlight="true" avatarSize="0.25 1.60000002384186 0.75" type='"EXAMINE"'/>
 
-	<PointLight DEF="Omni001"
+	<PointLight DEF="omniLight1"
 		global="true"
 		intensity="0.400000005960464"
 		location="-19.1599998474121 -334.700012207031 -38.5200004577637"
 		radius="4724" />
-	<PointLight DEF="Omni002"
+	<PointLight DEF="omniLight2"
 		global="true"
 		intensity="0.400000005960464"
 		location="74.1100006103516 -307.200012207031 274.200012207031"
 		radius="4724" />
-	<PointLight DEF="Omni004"
+	<PointLight DEF="omniLight3"
 		global="true"
 		intensity="0.400000005960464"
 		location="896.900024414063 -1821 -58.0800018310547"
 		radius="4724" />
-	<PointLight DEF="Omni005"
+	<PointLight DEF="omniLight4"
 		global="true"
 		intensity="0.400000005960464"
 		location="-208 173 -802.200012207031"
 		radius="4724" />
-	<PointLight DEF="Omni006"
+	<PointLight DEF="omniLight5"
 		global="true"
 		intensity="0.400000005960464"
 		location="1786 314.200012207031 466.899993896484"
 		radius="4724" />
-	<PointLight DEF="Omni007"
+	<PointLight DEF="omniLight6"
 		global="true"
 		intensity="0.400000005960464"
 		location="-1777 -0.00577499996870756 -66.8199996948242"
 		radius="4724" />
-	<PointLight DEF="Omni008"
+	<PointLight DEF="omniLight7"
 		global="true"
 		intensity="0.400000005960464"
 		location="312.200012207031 696 -63.3400001525879"
 		radius="4724" />
-	<PointLight DEF="Omni011"
+	<PointLight DEF="omniLight8"
 		global="true"
 		intensity="0.400000005960464"
 		location="-251.399993896484 302.700012207031 0"
@@ -86,7 +82,8 @@
 		orientation="0 -0.707599997520447 0.70660001039505 -3.14199995994568"
 		fieldOfView="0.602400004863739"
 		description="CameraBottom" />
-	<Transform DEF="Line001">
+	
+	<Transform DEF="CokeCan-Wrapper">
 
 		<Transform translation="-0.513000011444092 84.1900024414063 27.2199993133545"
 		rotation="0.577400028705597 -0.577400028705597 0.577400028705597 -4.18900012969971">
@@ -97,7 +94,7 @@
         <orientationInterpolator DEF='Rotator' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57079 0 1 0 3.14159  0 1 0 4.71239  0 1 0 6.28317'></orientationInterpolator>
           
         <ROUTE fromNode='RotationTimer' fromField='fraction_changed' toNode='Rotator' toField='set_fraction'></ROUTE>
-        <ROUTE fromNode='Rotator' fromField='value_changed' toNode='Line001' toField='set_rotation'></ROUTE>
+        <ROUTE fromNode='Rotator' fromField='value_changed' toNode='CokeCan-Wrapper' toField='set_rotation'></ROUTE>
 
 		<Shape>
 			<Appearance>
