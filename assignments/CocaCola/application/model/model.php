@@ -3,7 +3,9 @@ class Model {
     private $pdo;
     
     public function __construct() {
-        $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8;port=' . DB_PORT;
+    
+        $dsn = 'mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8;port='.DB_PORT;
+		// $dsn = 'mysql:host=' . MY_BB_HOST . ';dbname=' . DB_NAME . ';charset=utf8;' . DB_PORT;
         try {
             $this->pdo = new PDO($dsn, DB_USER, DB_PASS);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -64,7 +66,7 @@ class Model {
 	
 	public function __construct()
 	{
-		$this->dbhandle = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+		$this->dbhandle = new mysqli(MY_BB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
         if ($this->dbhandle->connect_error) {
             die("Database connection failed: " . $this->dbhandle->connect_error);
         }

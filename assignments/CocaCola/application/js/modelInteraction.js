@@ -137,6 +137,20 @@ document.getElementById('spinButtonY').addEventListener('click', function() {
     }
 });
 
+/*function spinModelY () {
+    spinning = !spinning;
+    var modelName = getActiveModel();
+    var rotationId = modelName + 'Transform';
+    var transformNode = document.getElementById(rotationId);
+    const element = document.getElementById(transformNode);
+    if (element) {
+      element.setAttribute('enabled', spinning.toString());
+      element.setAttribute('rotation', '7 7 17 31.785');
+      const elementTransform = document.getElementById(transformNode);
+      elementTransform.setAttribute('transform', '-200 61.28200006484985 69.4300003051758');
+    }
+}*/
+
 function spinModelZ() {
 
     var modelName = getActiveModel();
@@ -271,6 +285,8 @@ function resetToDefault() {
         } else {
             console.log('Rotation timer element not found for ' + modelName);
         }
+
+        spinning = !spinning;
 
         // Reset visual settings
         // Example: Reset wireframe view

@@ -30,7 +30,6 @@ class Controller {
 
 	function apiCocaCola()
 	{
-		print('Sultanannnnanana viewCocaCola');
 		$this->load->view('viewCocaCola');	
 	}
 
