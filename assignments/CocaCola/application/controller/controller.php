@@ -1,8 +1,8 @@
 <?php
 include __DIR__ . '/../config/config.php';
 // Include the Load and Model classes
-require_once __DIR__ . '/../view/Load.php';
-require_once __DIR__ . '/../model/Model.php';
+require_once __DIR__ . '/../view/load.php';
+require_once __DIR__ . '/../model/model.php';
 class Controller {
 	public $load;
 	public $model;
@@ -31,7 +31,6 @@ class Controller {
 	function apiCocaCola()
 	{
 		print('Sultanannnnanana viewCocaCola');
-		//loadRelatedProducts();
 		$this->load->view('viewCocaCola');	
 	}
 
@@ -41,6 +40,32 @@ class Controller {
 	   	$this->load->view('viewMessage', $data);
 	}  
 
+
+	public function getJsonData() {
+        try {
+            $data = $this->model->getData(); // This method should now use PDO
+
+            if ($data === null || empty($data)) {
+                throw new Exception('No data found');
+            }
+
+            $response = [
+                'status_code_header' => 'HTTP/1.1 200 OK',
+                'body' => json_encode($data)
+            ];
+        } catch (Exception $e) {
+            $response = [
+                'status_code_header' => 'HTTP/1.1 500 Internal Server Error',
+                'body' => json_encode(['error' => 'An error occurred: ' . $e->getMessage()])
+            ];
+        }
+
+        header($response['status_code_header']);
+        header('Content-Type: application/json');
+        echo $response['body'];
+    }
+
+	/* Without PDO
 	public function getJsonData() {
 		try {
 			$data = $this->model->getData(); // Modify this method in your Model class
@@ -67,14 +92,8 @@ class Controller {
 		header($response['status_code_header']);
 		header('Content-Type: application/json');
 		echo $response['body'];
-	}
+	}*/
 	
 
 }
-// // Instantiate the controller
-// $controller = new Controller();
-// // Call the method to fetch data
-// if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//     $controller->getJsonData();
-// }
 ?>    

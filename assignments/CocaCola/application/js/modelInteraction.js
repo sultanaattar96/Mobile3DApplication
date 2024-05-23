@@ -68,7 +68,8 @@ function rotateX() {
 }
 
 // Function to start rotation around the Y-axis
-function rotateY() {
+//clock, anti,
+/*function rotateY() {
     var modelName = getActiveModel();
     var rotationId = modelName + '__RotationTimer';
     var element = document.getElementById(rotationId);
@@ -79,21 +80,85 @@ function rotateY() {
     } else {
         console.log('Invalid model ID for rotation around Y-axis');
     }
-}
+}*/
 
-// Function to start rotation around the Z-axis
-function rotateZ() {
+
+/*function rotateY() {
     var modelName = getActiveModel();
     var rotationId = modelName + '__RotationTimer';
     var element = document.getElementById(rotationId);
 
     if (element) {
-        element.setAttribute('rotation', '0 0 1 0.785398'); // Rotate 45 degrees around Z-axis
+        rotation -= 0.01; // Decrement rotation for continuous movement
+        element.setAttribute('rotation', `${rotation} 0 0`); // Rotate around X-axis
         element.setAttribute('enabled', 'true');
+        
+        // Use requestAnimationFrame for smooth continuous rotation
+        requestAnimationFrame(rotateY);
     } else {
-        console.log('Invalid model ID for rotation around Z-axis');
+        console.log('Invalid model ID for rotation around X-axis');
     }
 }
+*/
+
+// function spinModelY() {
+//     if (spinning) {
+//         var modelName = getActiveModel();
+//         var rotationId = modelName + '__RotationTimer';
+//         rotation += 0.01;
+//         var element = document.getElementById(rotationId);
+//         element.setAttribute('rotation', `1 0 0 ${rotation}`);
+//         requestAnimationFrame(spinModelY);
+//     }
+// }
+
+let spinning = false;
+let rotation = 0;
+
+function spinModelY() {
+
+    var modelName = getActiveModel();
+    var rotationId = modelName + 'Transform';
+    var transformNode = document.getElementById(rotationId);
+
+    if (spinning) {
+        rotation += 0.01;
+        transformNode.setAttribute('rotation', `1 0 0 ${rotation}`);
+        requestAnimationFrame(spinModelY);
+    }
+}
+document.getElementById('spinButtonY').addEventListener('click', function() {
+    spinning = !spinning;
+    if (spinning) {
+        spinModelY();
+        this.textContent = 'Stop Spinning';
+    } else {
+        this.textContent = 'Spin Y';
+    }
+});
+
+function spinModelZ() {
+
+    var modelName = getActiveModel();
+    var rotationId = modelName + 'Transform';
+    var transformNode = document.getElementById(rotationId);
+
+    if (spinning) {
+        rotation += 0.02;
+        transformNode.setAttribute('rotation', `0 0 1 ${rotation}`);
+        requestAnimationFrame(spinModelZ);
+    }
+}
+
+document.getElementById('spinButtonZ').addEventListener('click', function() {
+    spinning = !spinning;
+    if (spinning) {
+        spinModelZ();
+        this.textContent = 'Stop Spinning';
+    } else {
+        this.textContent = 'Spin Z';
+    }
+});
 
 // Function to stop rotation
 function stopRotation() {

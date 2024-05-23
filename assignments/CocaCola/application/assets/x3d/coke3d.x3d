@@ -83,7 +83,7 @@
 		fieldOfView="0.602400004863739"
 		description="CameraBottom" />
 	
-	<Transform DEF="CokeCan-Wrapper">
+	<Transform DEF="Line001">
 
 		<Transform translation="-0.513000011444092 84.1900024414063 27.2199993133545"
 		rotation="0.577400028705597 -0.577400028705597 0.577400028705597 -4.18900012969971">
@@ -92,9 +92,10 @@
         <timeSensor DEF='RotationTimer' cycleInterval='4' loop='true' enabled='false'></timeSensor>
 
         <orientationInterpolator DEF='Rotator' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57079 0 1 0 3.14159  0 1 0 4.71239  0 1 0 6.28317'></orientationInterpolator>
+	
           
         <ROUTE fromNode='RotationTimer' fromField='fraction_changed' toNode='Rotator' toField='set_fraction'></ROUTE>
-        <ROUTE fromNode='Rotator' fromField='value_changed' toNode='CokeCan-Wrapper' toField='set_rotation'></ROUTE>
+        <ROUTE fromNode='Rotator' fromField='value_changed' toNode='Line001' toField='set_rotation'></ROUTE>
 
 		<Shape>
 			<Appearance>

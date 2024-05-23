@@ -13,6 +13,28 @@
     background-color: rgba(182, 231, 243, 1.0);
 } */
 
+/* Base styles for larger screens */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* other styles */
+  }
+  
+  /* Styles for screens smaller than 768px */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+    }
+    .navbar {
+      width: 100%;
+    }
+    .logo h1 {
+      font-size: 1.5rem; /* Adjust the size as needed */
+    }
+  }
+  
+
 .main_contents {
     margin-top: 10px;
     margin-bottom: 10px;

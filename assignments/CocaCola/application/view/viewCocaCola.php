@@ -35,56 +35,47 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../../CocaCola/application/css/custom.css">
   <link rel="stylesheet" type="text/css" href="../application/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" type="text/css" href="../application/css/header.css">
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl d-flex justify-content-between">
-    <!-- <img src="../application/assets/images/loggo.png" alt="" style="width:100px; height:100px;">  -->
-    <div class="logo d-flex align-items-center">
-        <a class="navbar-brand" href="#">
-        <h1 class="mb-0">Coca-cola - Refreshing the world</h1>
-        </a>
-    </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li class="nav-item">
-            <a id="navHome" class="nav-link active" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a id="navAbout" class="nav-link"  href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="About Mobile 3D Applications" data-content="3D Apps">About</a>
-            </li>
-          <li class="nav-item">
-            <a id="navModels" class="nav-link"  href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="X3D Models" data-content="There are three X3D models: Coke, Sprite and Pepper">Models</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="position-relative">
-        <!-- <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
-        <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-        <a href="#" class="mx-2"><span class="bi-instagram"></span></a> -->
-
-        <!-- <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a> -->
-        <i class="bi bi-list mobile-nav-toggle"></i>
-
-        <div class="search-form-wrap js-search-form-wrap">
-          <form action="#" class="search-form">
-            <span class="icon bi-search"></span>
-            <input type="text" placeholder="Search" class="form-control">
-            <button class="btn js-search-close"><span class="bi-x"></span></button>
-          </form>
+  <nav class="navbar navbar-expand-custom navbar-mainbg">
+    <a class="navbar-brand navbar-logo" href="#">Coca-cola - Refreshing the world</a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fa fa-bars">Menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <div class="hori-selector">
+          <div class="left"></div>
+          <div class="right"></div>
         </div>
-      </div>
+        <li class="nav-item active">
+          <a id="navHome" class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a id="navAbout" class="nav-link"  href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="3D Apps">About</a>
+        </li>
+        <li class="nav-item">
+          <a id="navModels" class="nav-link"  href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are three X3D models: Coke, Sprite and Pepper">Models</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Contact</a>
+        </li>
+      </ul>
     </div>
+  </nav>
 
-  </header><!-- End Header -->
+  <div class="position-relative">
+    <div class="search-form-wrap js-search-form-wrap">
+      <form action="#" class="search-form">
+        <span class="icon bi-search"></span>
+        <input type="text" placeholder="Search" class="form-control">
+        <button class="btn js-search-close"><span class="bi-x"></span></button>
+      </form>
+    </div>
+  </div>
 
   <!-- Start 3D App SPA Contents -->
   <div class="container-fluid main_contents">
@@ -257,12 +248,14 @@
              <!-- Coke X3D model -->
               <div id="coke">
                 <div id="x3dModelTitle_coke" class="card-title drinksText"></div>
-                <div class="model3D">
-                  <div class="loader"></div>
+                <div class="model3D" >
+                  <div class="loader" id="spinCokeId"></div>
                     <x3d id="cokeWire">
                         <scene>
+                        <transform id="cokeModelTransform">
                             <inline nameSpaceName="cokeModel" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/coke3d.x3d" > </inline>
-                        </scene>
+                        </transform>
+                          </scene>
                     </x3d>
                 </div> 
                 <div id="x3dCreationMethod_coke" class="card-text drinksText"></div>
@@ -275,8 +268,10 @@
                   <div class="loader"></div>
                     <x3d id="spriteWire">
                         <scene>
-                            <inline nameSpaceName="spriteModel" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/final_sprite.x3d"> </inline>
-                        </scene>
+                            <transform id="spriteModelTransform">
+                              <inline nameSpaceName="spriteModel" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/final_sprite.x3d"> </inline>
+                            </transform>
+                            </scene>
                     </x3d>
                 </div> 
                 <div id="x3dCreationMethod_sprite" class="card-text drinksText"></div>
@@ -289,8 +284,10 @@
                   <div class="loader"></div>
                     <x3d id="pepperWire">
                         <scene>
-                            <inline nameSpaceName="pepperModel" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/pepper3d.x3d"> </inline>
-                        </scene>
+                          <transform id="pepperModelTransform">
+                             <inline nameSpaceName="pepperModel" mapDEFToID="true" onclick="animateModel();" url="../application/assets/x3d/pepper3d.x3d"> </inline>
+                          </transform>
+                          </scene>
                     </x3d>
                 </div> 
                 <div id="x3dCreationMethod_pepper" class="card-text drinksText"></div>
@@ -341,7 +338,7 @@
           </div>
 
           <!-- Animation Controls -->
-          <div class="col-sm-4">
+          <div class="col-md-4">
               <div class="card text-left">
                   <div class="card-header bg-success text-white">
                       <h5 class="card-title">Animation Options</h5>
@@ -349,8 +346,8 @@
                   <div class="card-body">
                       <div class="btn-group-vertical w-100">
                           <button class="btn btn-outline-success" onclick="rotateX();">Spin X</button>
-                          <button class="btn btn-outline-success" onclick="rotateY();">Spin Y</button>
-                          <button class="btn btn-outline-success" onclick="rotateZ();">Spin Z</button>
+                          <button class="btn btn-outline-success" id="spinButtonY" onclick="spinModelY()">Spin Y</button>
+                          <button class="btn btn-outline-success" id="spinButtonZ" onclick="rotateZ();">Spin Z</button>
                           <button class="btn btn-outline-success" onclick="stopRotation();">Stop</button>
                       </div>
                       <p class="card-text mt-3">Select a range of X3D animation options. Please select any</p>
@@ -365,6 +362,7 @@
                   </div>
                   <p class="text-center">Explore different animation options using the buttons above.</p>
               </div>
+          </div>
           </div>
         </div> <!-- End the interaction panels -->
         </div>
@@ -454,6 +452,7 @@
   <script src="../application/js/jquery.min.js"></script>
   <script src="../application/js/jquery-3.7.1.js"></script>
   <script src="../application/js/cocaContent.js"></script>
+  <script src="../application/js/header.js"></script>
   <script src="../application/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../application/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../application/assets/vendor/glightbox/js/glightbox.min.js"></script>
